@@ -14,8 +14,26 @@ let ground = Matter.Bodies.rectangle(500, 600, 1400, 30, {
     isStatic: true
 });
 
-let boxA = Matter.Bodies.rectangle(400, 200, 80, 80);
-let boxB = Matter.Bodies.rectangle(450, 50, 80, 80);
+let topWall = Matter.Bodies.rectangle(500, 0, 1400, 20, {
+        isStatic: true, render: {
+            visible: true
+        }
+});
+
+let leftWall = Matter.Bodies.rectangle(0, 250, 20, window.innerHeight, {
+        isStatic: true, render: {
+            visible: true
+        }
+});
+
+let rightWall = Matter.Bodies.rectangle(1200, 250, 20, window.innerHeight, {
+        isStatic: true, render: {
+            visible: true
+        }
+});
+
+let boxA = Matter.Bodies.circle(400, 200, 30, 80);
+let boxB = Matter.Bodies.circle(450, 50, 30, 80);
 
 let mouse = Matter.Mouse.create(render.canvas);
 let mouseConstraint = Matter.MouseConstraint.create(engine, {
@@ -28,6 +46,6 @@ let mouseConstraint = Matter.MouseConstraint.create(engine, {
 });
 render.mouse = mouse;
 
-Matter.World.add(engine.world, [boxA, boxB, ground, mouseConstraint]);
+Matter.World.add(engine.world, [boxA, boxB, ground, topWall, leftWall, rightWall, mouseConstraint]);
 Matter.Engine.run(engine);
 Matter.Render.run(render);
