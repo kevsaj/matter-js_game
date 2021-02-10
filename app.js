@@ -32,10 +32,9 @@ let rightWall = Matter.Bodies.rectangle(1200, 250, 20, window.innerHeight, {
         }
 });
 
-let boxA = Matter.Bodies.circle(400, 200, 30, 80);
-let boxB = Matter.Bodies.circle(400, 50, 30, 80);
-let boxC = Matter.Bodies.circle(400, 50, 30, 80);
-let boxD = Matter.Bodies.circle(400, 50, 30, 80);
+let stack = Matter.Composites.stack(400, 270, 6, 6, 0, 0, function(x, y) { 
+          return Matter.Bodies.circle(x, y, 30, 30);
+      });
 
 let mouse = Matter.Mouse.create(render.canvas);
 let mouseConstraint = Matter.MouseConstraint.create(engine, {
@@ -48,13 +47,16 @@ let mouseConstraint = Matter.MouseConstraint.create(engine, {
 });
 render.mouse = mouse;
 
-let ball = Matter.Bodies.circle(650, 400, 20);
+let ball = Matter.Bodies.circle(600, 200, 20);
 let sling = Matter.Constraint.create({ 
       pointA: { x: 600, y: 200 }, 
       bodyB: ball, 
-      stiffness: 0.08
+      stiffness: 0.05
   });
 
-Matter.World.add(engine.world, [boxA, boxB, boxC, boxD, ground, topWall, leftWall, rightWall, ball, sling, mouseConstraint]);
+
+
+
+Matter.World.add(engine.world, [stack, ground, topWall, leftWall, rightWall, ball, sling, mouseConstraint]);
 Matter.Engine.run(engine);
 Matter.Render.run(render);
