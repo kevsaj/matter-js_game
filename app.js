@@ -34,18 +34,20 @@ let rightWall = Matter.Bodies.rectangle(1200, 250, 20, window.innerHeight, {
 
 let boxA = Matter.Bodies.circle(400, 200, 30, 80);
 let boxB = Matter.Bodies.circle(450, 50, 30, 80);
+let boxC = Matter.Bodies.circle(450, 50, 30, 80);
+let boxD = Matter.Bodies.circle(450, 50, 30, 80);
 
 let mouse = Matter.Mouse.create(render.canvas);
 let mouseConstraint = Matter.MouseConstraint.create(engine, {
     mouse: mouse,
     constraint: {
         render: {
-            visible: false
+            visible: true
         }
     }
 });
 render.mouse = mouse;
 
-Matter.World.add(engine.world, [boxA, boxB, ground, topWall, leftWall, rightWall, mouseConstraint]);
+Matter.World.add(engine.world, [boxA, boxB, boxC, boxD, ground, topWall, leftWall, rightWall, mouseConstraint]);
 Matter.Engine.run(engine);
 Matter.Render.run(render);
