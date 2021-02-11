@@ -24,7 +24,7 @@ let topWall1 = Matter.Bodies.rectangle(1300, 0, 1400, 20, {
 
 let topWall2 = Matter.Bodies.rectangle(0, 20, 1200, 20, {
     isStatic: true,
-    angle: Math.PI * 0.04,
+    angle: Math.PI * 0.05,
     render: {
         visible: true
     }
@@ -45,7 +45,7 @@ let rightWall = Matter.Bodies.rectangle(1200, 250, 20, window.innerHeight, {
 });
 
 let stack = Matter.Composites.stack(0, 0, 40, 4, 0, 0, function (x, y) {
-    return Matter.Bodies.circle(x, y, 10, 0);
+    return Matter.Bodies.circle(x, y, 10, { friction: 0.00001, restitution: 0.5, density: 0.001 });
 });
 
 let mouse = Matter.Mouse.create(render.canvas);
