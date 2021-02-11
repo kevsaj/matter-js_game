@@ -1,3 +1,7 @@
+ $(window).load(function(){        
+   $('#myModal').modal('show');
+    }); 
+
 let engine = Matter.Engine.create();
 
 let render = Matter.Render.create({

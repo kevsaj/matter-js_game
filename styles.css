@@ -7,3 +7,30 @@ body {
     justify-content: center;
     background-color: rgb(36, 36, 36);
 }
+
+button {
+    font: inherit;
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    padding: 8px 16px;
+    color: #000;
+    text-shadow: 0 1px 2px hsla(0, 0%, 100%, .15);
+    background-color: #ad68d9;
+    background-image: linear-gradient(#ad68d9, #a960d7);
+    box-shadow: inset 0 0 2px hsla(0, 0%, 100%, .15);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all .15s ease-out
+}
+
+button:hover {
+    transform: scale(1.05);
+    background-image: linear-gradient(#c391e3, #bf89e1)
+}
+
+button:active {
+    transform: scale(.95);
+    opacity: .5
+}
