@@ -45,7 +45,7 @@ let rightWall = Matter.Bodies.rectangle(1200, 250, 20, window.innerHeight, {
 });
 
 let stack = Matter.Composites.stack(0, 0, 40, 4, 0, 0, function (x, y) {
-    return Matter.Bodies.circle(x, y, 10, { friction: 0.00001, restitution: 0.5, density: 0.001 });
+    return Matter.Bodies.circle(x, y, 10, { friction: 0.00001, restitution: 0.9, density: 0.001 });
 });
 
 let mouse = Matter.Mouse.create(render.canvas);
